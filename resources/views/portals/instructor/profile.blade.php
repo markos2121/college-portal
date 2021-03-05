@@ -9,51 +9,45 @@
                     <table class="table table-hover">
                         <thead>
                             <th>
-                                Thumbnail
+                                Full name
                             </th>
                             <th>
-                                Type
+                                Email
                             </th>
                             <th>
-                                Price
+                                Mobile number
                             </th>
                             <th>
-                                Amount
+                                Address
                             </th>
                             <th>
-                                Desc1
-                            </th>
-                            <th>
-                                Desc2
-                            </th>
-                            <th>
-                                Desc3
-                            </th>
-                            <th>
-                                Edit
-                            </th>
-                            <th>
-                                Delete
+                                Instructing course
                             </th>
                         </thead>
                         <tbody>
-                            
+
+                            @foreach ($profiles as $profile)
                                 <tr>
                                     <td>
-                                        <img src="" alt="image" width="90px" height="50px">
+                                        {{$profile->fullname}}
                                     </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
+                                        {{$profile->email}}
                                     </td>
-                                    <td>Delete</td>
+                                    <td>
+                                        {{$profile->mobilenumber}}
+                                    </td>
+                                    <td>
+                                        {{$profile->address}}
+                                    </td>
+                                    <td>
+                                        {{$profile->instructingcourses}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('portals.instructor.profile.edit',['id'=>$profile->id])}}" class="btn btn-info">Edit</a>
+                                    </td>
                                 </tr>
-                            
+                                @endforeach
                         </tbody>
                     </table>
                 </div>

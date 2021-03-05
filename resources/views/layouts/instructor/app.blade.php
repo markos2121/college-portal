@@ -71,8 +71,6 @@
                 </div>
             </div>
         </nav>
-
-        <!-- @yield('content') -->
         <div class="continer">
             <div class="row">
                 <?php //@if(Auth::check())?>

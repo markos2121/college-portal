@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\profile;
 
-class InstructorsController extends Controller
+class InstructorsGradeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class InstructorsController extends Controller
      */
     public function index()
     {
-        $profile=profile::all();
-        return view('portals.instructor.profile')->with('profiles', $profile);
+        //
     }
 
     /**
@@ -26,6 +24,7 @@ class InstructorsController extends Controller
     public function create()
     {
         //
+        view('portals.instructor.grade');
     }
 
     /**
@@ -59,8 +58,6 @@ class InstructorsController extends Controller
     public function edit($id)
     {
         //
-        $profile = profile::find($id);
-        view('portals.instructor.editprofile')->with('profiles', $profile);
     }
 
     /**
@@ -73,24 +70,6 @@ class InstructorsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[
-            'fullname' => 'required',
-            'email'=> 'required',
-            'mobile'=>'required',
-            'address'=>'required',
-            'instructingcourse'=>'required'
-        ]);
-        $profile = profile::find($id);
-
-        $profile->fullname = $request->fullname;
-            $profile->email = $request->email;
-            $profile->mobile=$request->mobile;
-            $profile->address=$request->address;
-            $profile->instructing_course=$request->instructing_course;
-
-        $profile->save();
-
-        return redirect()->route('portals.instructor.profile');
     }
 
     /**

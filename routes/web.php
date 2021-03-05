@@ -144,18 +144,27 @@ Route::post('/portals/registrar/announcement', [
 
 //instructor's profile view route
 Route::get('/portals/instructor/profile', [
-    'uses' => 'InstructorsController@profile',
+    'uses' => 'InstructorsController@index',
     'as' => 'portals.instructor.profile'
+]);
+
+Route::get('/portals/instructor/profile/edit/{id}', [
+    'uses' => 'InstructorsController@edit',
+    'as' => 'portals.instructor.profile.edit'
+]);
+Route::post('/portals/instructor/profile/update/{id}', [
+    'uses' => 'InstructorsController@update',
+    'as' => 'portals.instructor.profile.update'
 ]);
 
 //grade submit page by the instructor
 Route::get('/portals/instructor/grade', [
-    'uses' => 'InstructorsController@create',
+    'uses' => 'InstructorsGradeController@create',
     'as' => 'portals.instructor.grade'
 ]);
 
 Route::get('/portals/instructor/index', [
-    'uses' => 'InstructorsController@index',
+    'uses' => 'InstructorsGradeController@index',
     'as' => 'portals.instructor.index'
 ]);
 
